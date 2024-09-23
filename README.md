@@ -57,6 +57,30 @@ Copynpm run server
 Start the React frontend:
 
 Copynpm run client
+Directory Structure
+
+Copyproject-root/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── .env
+│   ├── package.json
+│   └── server.js
+└── client/
+    ├── src/
+    │   ├── components/
+    │   ├── pages/
+    │   ├── redux/
+    │   │   ├── actions.js
+    │   │   ├── reducers.js
+    │   │   └── store.js
+    │   ├── App.js
+    │   └── index.js
+    ├── public/
+    ├── package.json
+    └── .env
 ### Usage
 Once the application is running, you can access it at http://localhost:3000. You can navigate through the home page and other public access pages. To access user account features, you need to create an account and log in.
 
