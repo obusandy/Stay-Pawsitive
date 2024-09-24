@@ -2,6 +2,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
+import "../pages/Images/Capture.PNG";
 
 export default function Navbar() {
   return (
@@ -9,7 +10,13 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light gradient-bg">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            <img
+              src={require("../pages/Images/Capture.PNG")}
+              alt="pawprint"
+              width="42"
+              height="45"
+              className="rounded-circle"
+            />
           </a>
           <button
             className="navbar-toggler"
