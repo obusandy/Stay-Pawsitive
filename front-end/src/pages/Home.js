@@ -31,11 +31,10 @@ export default function Home() {
           backgroundSize: "cover",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          height: "40%",
         }}
       >
-        {" "}
-        <h1>Stay-Pawsitive</h1>
+        <h1 className="HomeFont">Stay-Pawsitive</h1>
       </ParallaxLayer>
 
       <ParallaxLayer

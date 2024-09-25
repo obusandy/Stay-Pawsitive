@@ -4,5 +4,10 @@
     height: 100vh;
     background-color: #05255cab;
   }
-  
- 
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 20px; /* Add some space between the cards */
+  margin-top: 20px;
+}

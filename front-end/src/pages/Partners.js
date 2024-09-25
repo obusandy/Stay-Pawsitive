@@ -14,11 +14,11 @@ const Partners = () => {
 
   return (
     <div className="partners-container">
-      <h1>Our Partners</h1>
-      <div className="partners-logos">
+      <h1 style={{ color: "white" }}>Our Partners</h1>
+      <div className="partners-logos mt-4">
         {partnersList.map((partner) => (
           <div key={partner.id} className="partner-logo">
-            <img src={partner.logo} alt={partner.name} />
+            <img src={partner.logo} alt={partner.name} className="me-4" />
           </div>
         ))}
       </div>
