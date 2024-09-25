@@ -1,42 +1,80 @@
 import React from "react";
 import "../pages/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel } from "react-bootstrap";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import homepageImage from "../pages/Images/Homepage.jpg";
+import About from "./About";
+import Partners from "./Partners";
+import Resources from "./Resources";
+import ContactUs from "./ContactUs";
+import PartnerBg from "../pages/Images/PartnerBg.jpg";
+import Adopt from "../pages/Images/Adopt.jpg";
 
 export default function Home() {
   return (
-    <>
-      <body className="parallax">
-        <div className="text-container fw-bold">
-          <h1>STAY-PAWSITIVE</h1>
+    <Parallax
+      pages={5}
+      offset={0}
+      speed={0}
+      style={{
+        backgroundImage: `url(${Adopt})`,
+        backgroundSize: "cover",
+        display: "flex",
+        height: "100vh",
+      }}
+    >
+      <ParallaxLayer
+        offset={0}
+        speed={0}
+        style={{
+          backgroundImage: `url(${homepageImage})`,
+          backgroundSize: "cover",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {" "}
+        <h1>Stay-Pawsitive</h1>
+      </ParallaxLayer>
 
-          {/* Bootstrap Carousel */}
-          <Carousel indicators={true} interval={5000} className="Carousel">
-            {/* First Slide */}
-            <Carousel.Item>
-              <div className="description-part">
-                Welcome to our animal welfare initiative! Here at stay-pawsitive
-                we believe in creating a better world for our very cutesy furry
-                friends, offering a range of services from adoptions to
-                fostering.
-              </div>
-            </Carousel.Item>
+      <ParallaxLayer
+        offset={1}
+        speed={1}
+        style={{
+          background: "linear-gradient(to right, #6a11cb, #2575fc)",
+          backgroundSize: "cover",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <About />
+      </ParallaxLayer>
 
-            {/* Second Slide */}
-            <Carousel.Item>
-              <div className="description-part">
-                Explore our offerings, and let’s work together to care for those
-                who need it the most. Whether you’re looking to adopt, donate,
-                or get involved, we’ve got everything you need to make a
-                difference.
-              </div>
-            </Carousel.Item>
-          </Carousel>
+      <ParallaxLayer
+        offset={2}
+        speed={0}
+        style={{
+          backgroundImage: `url(${PartnerBg})`,
+          backgroundSize: "cover",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
 
-          <br />
-          <p>WE CARE</p>
-        </div>
-      </body>
-    </>
+          opacity: 1,
+        }}
+      >
+        <Partners />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={3} speed={0}>
+        <Resources />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={4} speed={0}>
+        <ContactUs />
+      </ParallaxLayer>
+    </Parallax>
   );
 }

@@ -62,6 +62,11 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <a className="nav-link me-3" href="#">
+                  Resources
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link me-3" href="#">
                   Contact Us
                 </a>
               </li>

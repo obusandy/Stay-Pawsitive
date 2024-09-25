@@ -1,28 +1,12 @@
-body {
-    height: 100%;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   
-  .parallax {
-    /* The image used */
-    background-image: url("../pages/Images/Homepage.jpg");
-  
-    /* Full height */
-    height: 100%;
-  /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .text-container {
-    text-align: center; /* Ensures the title is centered */
-    max-width: 400px; /* Limits the width to make the text more readable */
-    margin: auto;
-  }
-  Carousel{
-    font-size: 40px;
-  }
-  .Carousel{
-    font-size: 30px;
-    color: black;
-  }
+}
+body, html {
+  height: 100%;
+  overflow: hidden;
+ 
+}
+
