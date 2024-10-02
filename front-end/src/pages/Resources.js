@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
 import "./Resources.css";
 
 const Resources = () => {
@@ -62,5 +60,4 @@ const Resources = () => {
     </div>
   );
 };
-
 export default Resources;

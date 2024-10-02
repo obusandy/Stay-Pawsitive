@@ -1,4 +1,3 @@
-import React from "react";
 import "../pages/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
