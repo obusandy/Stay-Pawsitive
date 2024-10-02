@@ -10,12 +10,14 @@ import ContactUs from "./ContactUs";
 import PartnerBg from "../pages/Images/PartnerBg.jpg";
 import Adopt from "../pages/Images/Adopt.jpg";
 import Buttons from "../components/Buttons";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
     <>
+      <Buttons></Buttons>
       <Parallax
-        pages={5}
+        pages={6}
         offset={0}
         speed={0}
         style={{
@@ -74,6 +76,16 @@ export default function Home() {
 
         <ParallaxLayer offset={4} speed={0}>
           <ContactUs />
+        </ParallaxLayer>
+        <ParallaxLayer
+          style={{
+            height: "max-content",
+            paddingTop: "200px",
+          }}
+          offset={5}
+          speed={0}
+        >
+          <Footer />
         </ParallaxLayer>
       </Parallax>
     </>
