@@ -1,0 +1,13 @@
+.resources-container {
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+  background-color: #05255cab;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
