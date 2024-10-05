@@ -5,6 +5,7 @@ import axios from "axios";
 
 const Signup = () => {
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -23,6 +24,8 @@ const Signup = () => {
       const url = "http://localhost:8000/api/auth/register";
       console.log(data);
       const { data: res } = await axios.post(url, data);
+      setSuccess(res); // Save success message
+      setError("");
       navigate("/login");
     } catch (error) {
       console.log(error);
@@ -32,6 +35,7 @@ const Signup = () => {
         error.response.status <= 500
       ) {
         setError(error.response.data.message);
+        setSuccess("");
       }
     }
   };
@@ -86,6 +90,7 @@ const Signup = () => {
             />
           </div>
         </div>
+        {success && <div className="success_msg">{success}</div>}
         {error && <div className="error_msg">{error}</div>}
         <button type="submit" className="btn btn-primary">
           Sign up
