@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Contact from "./pages/ContactUs";
 import Chat from "./pages/Chat";
-import List from "./List";
+import List from "./pages/List";
 
 const App = () => {
   return (
