@@ -8,6 +8,8 @@ function AnimalForm() {
     breed: "",
     image: null,
   });
+  const [errorMessage, setErrorMessage] = useState(""); // State to store error message
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,47 +28,66 @@ function AnimalForm() {
     data.append("image", formData.image);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/list-animal",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log(response.data);
+      await axios.post("http://localhost:8000/api/list-animal", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setSuccessMessage("Animal listed successfully!");
+      setErrorMessage("");
+
+      setFormData({
+        name: "",
+        age: "",
+        breed: "",
+        image: null,
+      });
     } catch (error) {
-      console.error("Error uploading animal:", error);
+      setErrorMessage(
+        error.response?.data?.message || "Error uploading animal."
+      );
+      setSuccessMessage("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Animal Name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <input
-        type="number"
-        name="age"
-        placeholder="Animal Age"
-        value={formData.age}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="breed"
-        placeholder="Animal Breed"
-        value={formData.breed}
-        onChange={handleChange}
-      />
-      <input type="file" name="image" onChange={handleFileChange} />
-      <button type="submit">List Animal</button>
-    </form>
+    <div className="container my-4">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Animal Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="mb-3"
+        />
+        <input
+          type="number"
+          name="age"
+          placeholder="Animal Age"
+          value={formData.age}
+          onChange={handleChange}
+          className="mb-3"
+        />
+        <input
+          type="text"
+          name="breed"
+          placeholder="Animal Breed"
+          value={formData.breed}
+          onChange={handleChange}
+          className="mb-3"
+        />
+        <input
+          type="file"
+          name="image"
+          onChange={handleFileChange}
+          className="mb-3"
+        />
+        <button type="submit">List Animal</button>
+      </form>
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+    </div>
   );
 }
 

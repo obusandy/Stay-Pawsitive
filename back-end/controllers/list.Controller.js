@@ -18,11 +18,31 @@ exports.createAnimal = async (req, res) => {
 };
 
 // Fetch all animals
-exports.getAnimals = async (req, res) => {
+exports.getAdoptableAnimals = async (req, res) => {
   try {
     const animals = await Animal.find();
     res.json(animals);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching animals", error });
+    res
+      .status(500)
+      .json({ message: "Error fetching adoptable animals", error });
+  }
+};
+
+exports.updateAnimalStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const animal = await Animal.findById(id);
+
+    if (!animal) {
+      return res.status(404).json({ message: "Animal not found" });
+    }
+
+    animal.available = false; // Mark as unavailable
+    await animal.save();
+
+    res.json({ message: "Animal updated successfully", animal });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating animal", error });
   }
 };
