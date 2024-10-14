@@ -7,6 +7,7 @@ const animalRoutes = require("./routes/list.Routes");
 const appointmentRoutes = require("./routes/appointment.Routes");
 const tipRoutes = require("./routes/tips.Routes");
 const authRoutes = require("./routes/auth.Routes");
+const contRoutes = require("./routes/cont.Routes");
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api", animalRoutes);
 app.use("/api", appointmentRoutes);
 app.use("/api", tipRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/cont", contRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
