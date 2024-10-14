@@ -26,7 +26,7 @@ app.use("/api", animalRoutes);
 app.use("/api", appointmentRoutes);
 app.use("/api", tipRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/cont", contRoutes);
+app.use("/api", contRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
