@@ -8,7 +8,7 @@ function AnimalForm() {
     breed: "",
     image: null,
   });
-  const [errorMessage, setErrorMessage] = useState(""); // State to store error message
+  const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
@@ -51,7 +51,16 @@ function AnimalForm() {
   };
 
   return (
-    <div className="container my-4">
+    <div
+      className="container my-4 p-4"
+      style={{
+        background: "linear-gradient(to right, #6a11cb, #2575fc)",
+        borderRadius: "10px",
+        padding: "20px",
+        color: "white",
+      }}
+    >
+      <h2 className="text-center mb-4">List an Animal</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -59,7 +68,7 @@ function AnimalForm() {
           placeholder="Animal Name"
           value={formData.name}
           onChange={handleChange}
-          className="mb-3"
+          className="form-control mb-3"
         />
         <input
           type="number"
@@ -67,7 +76,7 @@ function AnimalForm() {
           placeholder="Animal Age"
           value={formData.age}
           onChange={handleChange}
-          className="mb-3"
+          className="form-control mb-3"
         />
         <input
           type="text"
@@ -75,13 +84,13 @@ function AnimalForm() {
           placeholder="Animal Breed"
           value={formData.breed}
           onChange={handleChange}
-          className="mb-3"
+          className="form-control mb-3"
         />
         <input
           type="file"
           name="image"
           onChange={handleFileChange}
-          className="mb-3"
+          className="form-control mb-3"
         />
         <button type="submit">List Animal</button>
       </form>
