@@ -145,9 +145,9 @@
     "ws": "^8.17.1",
     "xmlhttprequest-ssl": "^2.1.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
