@@ -1,9 +1,21 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 import "../pages/Images/Capture.PNG";
 
 export default function Navbar() {
+  const user = localStorage.getItem("token"); // Check if the user is logged in
+  const navigate = useNavigate();
+
+  const handlePrivateLink = (path) => {
+    if (user) {
+      navigate(path); // Navigate to the desired path if logged in
+    } else {
+      navigate("/login"); // Redirect to login page if not logged in
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light gradient-bg">
@@ -40,19 +52,31 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link me-3" to="/signup">
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/adopt")}
+                  style={{ cursor: "pointer" }}
+                >
                   Adopt
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link className="nav-link me-3" to="/signup">
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/list")}
+                  style={{ cursor: "pointer" }}
+                >
                   List
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link className="nav-link me-3" to={"/signup"}>
-                  Book appointment
-                </Link>
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/book-appointment")}
+                  style={{ cursor: "pointer" }}
+                >
+                  Book Appointment
+                </span>
               </li>
               <li className="nav-item">
                 <Link className="nav-link me-3" to={"/about"}>
@@ -60,12 +84,12 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link me-3" to={"/partners"}>
+                <Link className="nav-link me-3" to={"/resources"}>
                   Resources
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link me-3" href={"/contact"}>
+                <Link className="nav-link me-3" to={"/contact"}>
                   Contact Us
                 </Link>
               </li>

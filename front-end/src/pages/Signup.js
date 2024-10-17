@@ -1,22 +1,40 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Loginsignup.css";
 import axios from "axios";
 
 const Signup = () => {
-  const navigate = useNavigate();
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [error, setError] = useState("");
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("", { name, email, password })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+  const navigate = useNavigate();
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8000/api/auth/register";
+      console.log(data);
+      const { data: res } = await axios.post(url, data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
   return (
     <div className="bodylogin" style={{ height: "100vh" }}>
       <form onSubmit={handleSubmit} className="formcontainer">
@@ -29,7 +47,10 @@ const Signup = () => {
               type="text"
               className="form-control"
               id="name"
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              required
+              onChange={handleChange}
+              value={data.name}
             />
           </div>
         </div>
@@ -41,8 +62,11 @@ const Signup = () => {
             <input
               type="email"
               className="form-control"
-              id="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              id="email"
+              name="email"
+              required
+              onChange={handleChange}
+              value={data.email}
             />
           </div>
         </div>
@@ -54,22 +78,23 @@ const Signup = () => {
             <input
               type="password"
               className="form-control"
-              id="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              id="password"
+              required
+              name="password"
+              onChange={handleChange}
+              value={data.password}
             />
           </div>
         </div>
+        {error && <div className="error_msg">{error}</div>}
         <button type="submit" className="btn btn-primary">
           Sign up
         </button>
         <p>I have an account?</p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => navigate("/login")}
-        >
-          Login
-        </button>
+        <Link to={"/login"}>
+          {" "}
+          <p style={{ color: "blue" }}>login</p>
+        </Link>
       </form>
     </div>
   );

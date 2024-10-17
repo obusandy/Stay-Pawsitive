@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const connection = require("./db");
 const cors = require("cors");
@@ -5,6 +6,8 @@ const path = require("path");
 const animalRoutes = require("./routes/list.Routes");
 const appointmentRoutes = require("./routes/appointment.Routes");
 const tipRoutes = require("./routes/tips.Routes");
+const authRoutes = require("./routes/auth.Routes");
+
 
 const app = express();
 
@@ -16,17 +19,17 @@ app.use(
 );
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api", animalRoutes);
 app.use("/api", appointmentRoutes);
 app.use("/api", tipRoutes);
-
-
-const PORT = process.env.PORT || 8000;
-connection();
-
-
+app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+const port = process.env.PORT || 8000;
+connection();
+app.listen(port, () => console.log(`Server listening on port ${port}...`));
