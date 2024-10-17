@@ -1,13 +1,26 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
 import "../pages/Images/Capture.PNG";
 
 export default function Navbar() {
+  const user = localStorage.getItem("token"); // Check if the user is logged in
+  const navigate = useNavigate();
+
+  const handlePrivateLink = (path) => {
+    if (user) {
+      navigate(path); // Navigate to the desired path if logged in
+    } else {
+      navigate("/login"); // Redirect to login page if not logged in
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light gradient-bg">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to={"/"}>
             <img
               src={require("../pages/Images/Capture.PNG")}
               alt="pawprint"
@@ -15,7 +28,7 @@ export default function Navbar() {
               height="45"
               className="rounded-circle"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -30,43 +43,55 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active me-3"
                   aria-current="page"
-                  href="#"
+                  to={"/"}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/adopt">
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/adopt")}
+                  style={{ cursor: "pointer" }}
+                >
                   Adopt
-                </a>
+                </span>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/list">
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/list")}
+                  style={{ cursor: "pointer" }}
+                >
                   List
-                </a>
+                </span>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/adopt">
-                  Book appointment
-                </a>
+                <span
+                  className="nav-link me-3"
+                  onClick={() => handlePrivateLink("/book-appointment")}
+                  style={{ cursor: "pointer" }}
+                >
+                  Book Appointment
+                </span>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" to={"/about"}>
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" to={"/resources"}>
                   Resources
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" to={"/contact"}>
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -5,9 +5,10 @@
 .about-container {
   padding: 50px;
   text-align: center;
-  color: white;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
   font-family: "Arial", sans-serif;
-  border-radius: 20px;
+  border-top: 1px solid #000;
 }
 
 .about-title {

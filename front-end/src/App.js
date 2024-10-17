@@ -9,6 +9,13 @@ import List from "./pages/List";
 import Adopt from "./pages/Adopt";
 import BookAppointment from "./pages/BookAppointment";
 import Tips from "./pages/Tips";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Resources from "./pages/Resources";
+import Adopt from "./pages/Adopt";
+import List from "./pages/List";
+import Book from "./pages/Book";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   return (
@@ -25,6 +32,33 @@ const App = () => {
           <Route path="/adopt" element={<Adopt />} />
           <Route path="/book-appointment/:id" element={<BookAppointment />} />
           <Route path="/tips" element={<Tips />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route
+            path="/adopt"
+            element={
+              <PrivateRoute>
+                <Adopt />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/list"
+            element={
+              <PrivateRoute>
+                <List />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/book"
+            element={
+              <PrivateRoute>
+                <Book />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </>
