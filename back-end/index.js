@@ -24,6 +24,9 @@ app.use("/api", tipRoutes);
 
 const PORT = process.env.PORT || 8000;
 connection();
+
+
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
