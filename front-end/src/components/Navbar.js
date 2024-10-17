@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import "../pages/Images/Capture.PNG";
 
@@ -7,7 +8,7 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light gradient-bg">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to={"/"}>
             <img
               src={require("../pages/Images/Capture.PNG")}
               alt="pawprint"
@@ -15,7 +16,7 @@ export default function Navbar() {
               height="45"
               className="rounded-circle"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -30,43 +31,43 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active me-3"
                   aria-current="page"
-                  href="#"
+                  to={"/"}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/adopt">
+                <Link className="nav-link me-3" to="/signup">
                   Adopt
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/list">
+                <Link className="nav-link me-3" to="/signup">
                   List
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="/adopt">
+                <Link className="nav-link me-3" to={"/signup"}>
                   Book appointment
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" to={"/about"}>
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" to={"/partners"}>
                   Resources
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link me-3" href="#">
+                <Link className="nav-link me-3" href={"/contact"}>
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

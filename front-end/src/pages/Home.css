@@ -8,3 +8,14 @@
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.678);
   margin-top: 0;
 }
+body {
+  height: 100%;
+}
+.parallax {
+  background-image: url("../pages/Images/Homepage.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -9,6 +9,9 @@ import List from "./pages/List";
 import Adopt from "./pages/Adopt";
 import BookAppointment from "./pages/BookAppointment";
 import Tips from "./pages/Tips";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Partners from "./pages/Partners";
 
 const App = () => {
   return (
@@ -25,6 +28,9 @@ const App = () => {
           <Route path="/adopt" element={<Adopt />} />
           <Route path="/book-appointment/:id" element={<BookAppointment />} />
           <Route path="/tips" element={<Tips />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/partners" element={<Partners />} />
         </Routes>
       </Router>
     </>
