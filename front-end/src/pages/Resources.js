@@ -1,4 +1,5 @@
 import "./Resources.css";
+import { Link } from "react-router-dom";
 
 const Resources = () => {
   return (
@@ -53,10 +54,11 @@ const Resources = () => {
           </div>
         </div>
       </div>
-
-      <button type="button" class="btn btn-primary mt-4">
-        ADD TIP
-      </button>
+      <Link to="/tips">
+        <button type="button" class="btn btn-primary mt-4" to="/tips">
+          TIPS
+        </button>
+      </Link>
     </div>
   );
 };
