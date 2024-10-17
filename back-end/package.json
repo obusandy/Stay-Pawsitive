@@ -97,7 +97,13 @@
     "mquery": "^5.0.0",
     "ms": "^2.1.3",
     "negotiator": "^0.6.3",
+<<<<<<< HEAD
+<<<<<<< HEAD
     "nodemon": "^3.1.7",
+=======
+>>>>>>> a633fef (Resources backend/frontend)
+=======
+>>>>>>> 86373cbb03ef9725eda610c9eecbea45e634ebc8
     "normalize-path": "^3.0.0",
     "object-assign": "^4.1.1",
     "object-inspect": "^1.13.2",
@@ -112,6 +118,14 @@
     "qs": "^6.13.0",
     "range-parser": "^1.2.1",
     "raw-body": "^2.5.2",
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "react-router-dom": "^6.27.0",
+>>>>>>> a633fef (Resources backend/frontend)
+=======
+    "react-router-dom": "^6.27.0",
+>>>>>>> 86373cbb03ef9725eda610c9eecbea45e634ebc8
     "readdirp": "^3.6.0",
     "safe-buffer": "^5.2.1",
     "safer-buffer": "^2.1.2",
@@ -145,9 +159,24 @@
     "ws": "^8.17.1",
     "xmlhttprequest-ssl": "^2.1.1"
   },
+<<<<<<< HEAD
+<<<<<<< HEAD
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
+=======
+=======
+>>>>>>> 86373cbb03ef9725eda610c9eecbea45e634ebc8
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+<<<<<<< HEAD
+>>>>>>> a633fef (Resources backend/frontend)
+=======
+>>>>>>> 86373cbb03ef9725eda610c9eecbea45e634ebc8
   },
   "keywords": [],
   "author": "",

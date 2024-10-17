@@ -8,6 +8,7 @@ import Chat from "./pages/Chat";
 import List from "./pages/List";
 import Adopt from "./pages/Adopt";
 import BookAppointment from "./pages/BookAppointment";
+import Tips from "./pages/Tips";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/list" element={<List />} />
           <Route path="/adopt" element={<Adopt />} />
           <Route path="/book-appointment/:id" element={<BookAppointment />} />
+          <Route path="/tips" element={<Tips />} />
         </Routes>
       </Router>
     </>
