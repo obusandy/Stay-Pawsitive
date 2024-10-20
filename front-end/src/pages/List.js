@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AnimalForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -42,6 +44,7 @@ function AnimalForm() {
         breed: "",
         image: null,
       });
+      navigate("/adopt");
     } catch (error) {
       setErrorMessage(
         error.response?.data?.message || "Error uploading animal."
@@ -65,7 +68,7 @@ function AnimalForm() {
         <input
           type="text"
           name="name"
-          placeholder="Animal Name"
+          placeholder="Animal Name eg Cat, dog, ..."
           value={formData.name}
           onChange={handleChange}
           className="form-control mb-3"
@@ -73,7 +76,7 @@ function AnimalForm() {
         <input
           type="number"
           name="age"
-          placeholder="Animal Age"
+          placeholder="Animal Age in Months"
           value={formData.age}
           onChange={handleChange}
           className="form-control mb-3"
@@ -81,7 +84,7 @@ function AnimalForm() {
         <input
           type="text"
           name="breed"
-          placeholder="Animal Breed"
+          placeholder="Animal Breed eg Persian, German, ..."
           value={formData.breed}
           onChange={handleChange}
           className="form-control mb-3"
