@@ -77,6 +77,8 @@ function AnimalForm() {
           type="number"
           name="age"
           placeholder="Animal Age in Months"
+          min={0}
+          max={240}
           value={formData.age}
           onChange={handleChange}
           className="form-control mb-3"
