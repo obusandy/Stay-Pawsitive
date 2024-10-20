@@ -72,7 +72,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <span
                   className="nav-link me-3"
-                  onClick={() => handlePrivateLink("/book-appointment")}
+                  onClick={() => handlePrivateLink("/adopt")}
                   style={{ cursor: "pointer" }}
                 >
                   Book Appointment
