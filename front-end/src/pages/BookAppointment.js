@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 function BookAppointment() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [adopterName, setAdopterName] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const { name } = jwtDecode(token);
+      setAdopterName(name);
+    }
+  }, []);
 
   const confirmAppointment = async () => {
     try {

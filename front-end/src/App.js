@@ -12,8 +12,6 @@ import Tips from "./pages/Tips";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Resources from "./pages/Resources";
-import Adopt from "./pages/Adopt";
-import List from "./pages/List";
 import Book from "./pages/Book";
 import PrivateRoute from "./components/PrivateRoute";
 

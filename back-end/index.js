@@ -9,7 +9,6 @@ const tipRoutes = require("./routes/tips.Routes");
 const authRoutes = require("./routes/auth.Routes");
 const contRoutes = require("./routes/cont.Routes");
 
-
 const app = express();
 
 app.use(
@@ -28,10 +27,7 @@ app.use("/api", tipRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api", contRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 const port = process.env.PORT || 8000;
+
 connection();
 app.listen(port, () => console.log(`Server listening on port ${port}...`));

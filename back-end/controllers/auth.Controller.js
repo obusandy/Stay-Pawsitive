@@ -2,6 +2,7 @@ const { validate } = require("../models/User");
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const joi = require("joi");
+const jwt = require("jsonwebtoken");
 
 module.exports.createUser = async (req, res) => {
   try {
@@ -45,9 +46,20 @@ module.exports.loginUser = async (req, res) => {
         error: "Invalid email or password",
       });
     }
-    const token = user.generateAuthToken();
+    //   const token = user.generateAuthToken();
+    //   res.status(200).json({
+    //     data: token,
+    //     success: "logged in successfully",
+    //   });
+    // } catch (error) {
+    const token = jwt.sign(
+      { _id: user._id, name: user.name },
+      process.env.JWTPRIVATEKEY,
+      { expiresIn: "7d" }
+    );
+
     res.status(200).json({
-      data: token,
+      data: { token },
       success: "logged in successfully",
     });
   } catch (error) {
