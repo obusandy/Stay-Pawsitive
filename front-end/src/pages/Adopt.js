@@ -22,7 +22,7 @@ function Adopt() {
   }, []);
 
   const handleAdopt = (id) => {
-    navigate(`/book-appointment/${id}`); // Navigate to the appointment booking page with the animal ID
+    navigate(`/book-appointment/${id}`);
   };
 
   return (
@@ -41,14 +41,6 @@ function Adopt() {
                 <h3 className="card-title">{animal.name}</h3>
                 <p className="card-text">Age: {animal.age}</p>
                 <p className="card-text">Breed: {animal.breed}</p>
-              </div>
-              <div className="text-center">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => window.location.reload()}
-                >
-                  Refresh
-                </button>
               </div>
               <div className="text-center">
                 <button

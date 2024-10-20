@@ -27,7 +27,7 @@ function BookAppointment() {
         adopterName,
       });
       await axios.patch(`http://localhost:8000/api/adopt-animal/${id}`);
-      alert("Appointment booked successfully!");
+      alert("Thank you for adopting! Appointment booked successfully!");
       navigate("/");
     } catch (error) {
       console.error("Error booking appointment:", error);

@@ -4,7 +4,7 @@ const Animal = require("../models/Animal");
 exports.createAnimal = async (req, res) => {
   try {
     const { name, age, breed } = req.body;
-    const image = req.file.path; // Multer saves the file path
+    const image = req.file.path;
 
     const newAnimal = new Animal({ name, age, breed, image });
     await newAnimal.save();
@@ -38,7 +38,7 @@ exports.updateAnimalStatus = async (req, res) => {
       return res.status(404).json({ message: "Animal not found" });
     }
 
-    animal.available = false; // Mark as unavailable
+    animal.available = false;
     await animal.save();
 
     res.json({ message: "Animal updated successfully", animal });
