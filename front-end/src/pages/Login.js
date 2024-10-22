@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -8,6 +8,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -17,10 +18,15 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = "http://localhost:8000/api/auth/login";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      window.location = "/";
-      console.log(res.message);
+      const res = await axios.post(url, data);
+      if (res.data.error) {
+        return res.data.error;
+      }
+      if (res.data.success) {
+        navigate("/");
+        localStorage.setItem("token", res.data.data);
+      }
+      console.log(res.data.success);
     } catch (error) {
       if (
         error.response &&

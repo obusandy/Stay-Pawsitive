@@ -59,7 +59,7 @@ module.exports.loginUser = async (req, res) => {
     );
 
     res.status(200).json({
-      data: { token },
+      data: token,
       success: "logged in successfully",
     });
   } catch (error) {
