@@ -52,6 +52,7 @@ const Signup = () => {
               className="form-control"
               id="name"
               name="name"
+              placeholder="Enter your name"
               required
               onChange={handleChange}
               value={data.name}
@@ -68,6 +69,7 @@ const Signup = () => {
               className="form-control"
               id="email"
               name="email"
+              placeholder="Enter your email"
               required
               onChange={handleChange}
               value={data.email}
@@ -82,6 +84,7 @@ const Signup = () => {
             <input
               type="password"
               className="form-control"
+              placeholder="Enter your password"
               id="password"
               required
               name="password"

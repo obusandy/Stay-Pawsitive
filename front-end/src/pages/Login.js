@@ -49,6 +49,7 @@ const Login = () => {
             <input
               type="email"
               className="form-control"
+              placeholder="Email"
               id="email"
               name="email"
               required
@@ -65,6 +66,7 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
+              placeholder="Password"
               id="password"
               name="password"
               required

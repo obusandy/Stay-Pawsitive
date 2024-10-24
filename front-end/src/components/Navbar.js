@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
 import "../pages/Images/Capture.PNG";
+import Logout from "../pages/Logout";
 
 export default function Navbar() {
   const user = localStorage.getItem("token"); // Check if the user is logged in
@@ -93,6 +94,12 @@ export default function Navbar() {
                   Contact Us
                 </Link>
               </li>
+              {user && (
+                <li className="nav-item">
+                  {" "}
+                  <Logout />
+                </li>
+              )}
             </ul>
           </div>
         </div>
