@@ -4,6 +4,7 @@ const {
   createAnimal,
   getAdoptableAnimals,
   updateAnimalStatus,
+  getAnimalById,
 } = require("../controllers/list.Controller");
 
 const router = express.Router();
@@ -21,6 +22,7 @@ const upload = multer({ storage });
 // Routes
 router.post("/list-animal", upload.single("image"), createAnimal);
 router.get("/adopt-animals", getAdoptableAnimals);
+router.get("/adopt-animals/:id", getAnimalById);
 router.patch("/adopt-animal/:id", updateAnimalStatus);
 
 module.exports = router;

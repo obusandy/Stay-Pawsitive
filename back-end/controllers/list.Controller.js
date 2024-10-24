@@ -29,6 +29,22 @@ exports.getAdoptableAnimals = async (req, res) => {
   }
 };
 
+// below will help in retrieving animal by id in book appointment
+exports.getAnimalById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const animal = await Animal.findById(id);
+
+    if (!animal) {
+      return res.status(404).json({ message: "Animal not found" });
+    }
+
+    res.json(animal);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching animal", error });
+  }
+};
+
 exports.updateAnimalStatus = async (req, res) => {
   try {
     const { id } = req.params;

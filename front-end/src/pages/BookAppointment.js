@@ -8,6 +8,7 @@ import { jwtDecode } from "jwt-decode";
 function BookAppointment() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [animal, setAnimal] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [adopterName, setAdopterName] = useState("");
 
@@ -18,6 +19,21 @@ function BookAppointment() {
       setAdopterName(name);
     }
   }, []);
+
+  useEffect(() => {
+    const fetchAnimalDetails = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/api/adopt-animals/${id}`
+        );
+        setAnimal(response.data); // Set the fetched animal data
+      } catch (error) {
+        console.error("Error fetching animal details:", error);
+      }
+    };
+
+    fetchAnimalDetails();
+  }, [id]);
 
   const confirmAppointment = async () => {
     try {
@@ -34,8 +50,31 @@ function BookAppointment() {
     }
   };
 
+  if (!animal) {
+    return <p>Loading animal details...</p>; // Show loading state if animal data is not yet loaded
+  }
+
   return (
     <div className="container my-4">
+      <div className="card mb-4 text-center">
+        <img
+          src={`http://localhost:8000/${animal.image}`} // Display animal image
+          alt={animal.name}
+          className="rounded-circle img-fluid mb-3"
+          style={{
+            width: "150px",
+            height: "150px",
+            objectFit: "cover",
+            margin: "0 auto",
+            border: "5px solid #f8f9fa",
+          }}
+        />
+        <div className="card-body text-center">
+          <h3>{animal.name}</h3>
+          <p>Age: {animal.age} months</p>
+          <p>Breed: {animal.breed}</p>
+        </div>
+      </div>
       <h2>Book an Appointment</h2>
       <input
         type="text"
